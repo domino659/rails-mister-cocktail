@@ -7,10 +7,19 @@
   <br>
 
 <div class="container">
-  <hr>
+  <div class="d-flex">
     <div class="btn-index">
-        <%= link_to "Add a Cocktail", new_cocktail_path %>
+      <%= link_to "Add a Cocktail", new_cocktail_path %>
     </div>
+    <%= simple_form_for [@cocktail] do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
   <hr>
 
   <div class="cards">

@@ -1,20 +1,31 @@
 <div class="container">
-  <h2><%= @cocktail.name %></h2>
-  <hr>
-  <h3>Recipe
-  </h3>
-  <h3>Ingredients:
-    <div class="list-group">
+  <div class="d-flex" style="margin-top: 60px;">
+    <div style="margin-right: 50px;">
+        <img src="<%= cl_image_path(@cocktail.photo, height: 500, width: 350, crop: :fit) %>" alt="">
+    </div>
+    <div style="width: 80%">
+      <h2><%= @cocktail.name %></h2>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <h4>Recipe</h4>
+        <div class="add-ingredient link">
+          <i class="fas fa-plus"></i>
+          <%= link_to "", new_cocktail_dose_path(@cocktail)  %>
+        </div>
+      </div>
       <% @cocktail.doses.each do |dose| %>
-        <li class="list-group-item">
-          <%= dose.ingredient.name %> : <%= dose.description %>
-          <%= link_to 'Delete', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </li>
+        <div class="indivudal-ingredient">
+          <div class="d-flex justify-content-between" style="height: 22px;">
+            <p><strong><%= dose.ingredient.name %></strong>
+            <p><%= link_to 'Delete', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          </div>
+          <p><%= dose.description %></p></p>
+        </div>
       <% end %>
     </div>
-  </h3>
-  <hr>
-  <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail)  %>
-  <%= link_to "Home", cocktails_path  %>
-  <hr>
+  </div>
+  <div class="d-flex justify-content-end" style="margin-top: 40px;">
+    <i style="line-height: 1.4  ; font-size: 25px;" class="fas fa-angle-left"></i>
+    <h4 class="btn-home"><%= link_to "Home", cocktails_path  %></h4>
+  </div>
 </div>

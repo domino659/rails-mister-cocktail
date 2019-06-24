@@ -1,0 +1,18 @@
+p, a, h1, h2, h3, h4, h5, h6 {
+  color: #363946;
+}
+
+body {
+  background-color: #F4F4F4;
+}
+
+.link  {
+  position: relative;
+    a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

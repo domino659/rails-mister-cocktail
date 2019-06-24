@@ -1,14 +1,25 @@
-.btn-medium {
+.btn-index {
   text-decoration: none;
-  border: 1px;
-  width: 146px;
-  border-style: solid;
-  border-radius: 20px;
+  border: solid 1.5px #363946;
+  width: 160px;
+  border-radius: 3px;
   padding: 10px 20px;
-  color: #9e9999;
-  font-weight: 100;
+  color: #363946;
   opacity: 0.7;
   :hover {
+    opacity: 1;
+    font-weight: bold;
+    text-decoration: none;
+    color: #363946;
+  }
+}
+
+.btn-home {
+  padding: 4px;
+  :hover {
   opacity: 1;
+  text-decoration: none;
+  color: #363946;
+  opacity: 0.7;
   }
 }

@@ -8,20 +8,21 @@
 
 <div class="container">
   <div class="d-flex">
-    <div class="btn-index">
-      <%= link_to "Add a Cocktail", new_cocktail_path %>
+    <div>
+      <p class="btn-index">Add you're cocktail:</p>
     </div>
     <%= simple_form_for [@cocktail] do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.input :photo %>
+      <div class="d-flex" style="height: 46px;">
+      <%= f.text_field :name, placeholder:"Mojito", class: "new-cocktail" %>
+      <%= f.input :photo, input_html: { style: 'display:none' }, label_html: { class: 'upload-photo'}, label: 'Upload a photo' %>
       <%= f.input :photo_cache, as: :hidden %>
-      <%= f.submit class: 'btn btn-primary' %>
+      <%= f.submit class: 'button-new-cocktail' %>
+      </div>
+
     <% end %>
   </div>
-</div>
-  <hr>
 
+  <hr>
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
       <% if cocktail.photo.url.nil? %>
@@ -38,3 +39,4 @@
     <% end %>
   </div>
 </div>
+
